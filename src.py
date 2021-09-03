@@ -6,7 +6,7 @@ import smtplib
 from email.message import EmailMessage
 
 EMAIL_ADDRESS = 'ruwicsbuddies@gmail.com'
-EMAIL_PASSWORD = 'uclawgezoarwszbq'
+EMAIL_PASSWORD = 'INSERT PASSWORD HERE'
 
 
 
