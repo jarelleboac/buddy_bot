@@ -1,8 +1,8 @@
 import pandas as pd
 import random as rd
 
-col_list = ["Email address", "First Name", "Last Name"]
-df = pd.read_csv("names_odd.csv", usecols=col_list)
+col_list = ["Email address", "Full Name"]
+df = pd.read_csv("names_modd.csv", usecols=col_list)
 df_list=df.values.tolist() #converts dataframe to list
 
 num_pairs=len(df.index)/2
@@ -30,4 +30,4 @@ while df_list:
             df_list.append(x)
             df_list.append(y)
 
-#TODO: 1) extract first names and last names 2) extract email 3) send to email
+#TODO: 1) extract full names 2) extract email 3) send to email
