@@ -5,9 +5,7 @@ Fun side project inspired by a bot within Bloomberg L.P's data engineering team.
 Created random pairs from a csv file, accounting for odd number of participants.
 
 ## version 1.1 (in progress) additions
--parse email and full name 
--configure email send out
--format email with html
+parse email and full name, configure email send out, format email with html
 
 ## Getting Started
 
