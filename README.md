@@ -5,7 +5,7 @@ Fun side project inspired by a bot within Bloomberg L.P's data engineering team.
 Created random pairs from a csv file, accounting for odd number of participants. Automated emails sent out on a weekly basis and accounts for different partner pairs (dynamic). 
 
 ## version 1.1 (in progress)
-Keep track of previous weeks pairs.
+Keep track of previous weeks' pairs.
 
 ## Quickstart
 ### Python Requirements
