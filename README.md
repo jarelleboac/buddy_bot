@@ -62,3 +62,7 @@ hickory schedule src.py --every=10th@9:00am
 | Every Weekday    | `weekday@`                                    |
 | End of Month     | `eom@`                                        |
 
+## Helpful Links
+https://dev.to/maxhumber/how-to-send-and-schedule-emails-with-python-dnb
+https://towardsdatascience.com/how-to-send-beautiful-emails-with-python-the-essential-guide-a01d00c80cd0
+
