@@ -1,5 +1,12 @@
 import pandas as pd
 import random as rd
+#email configuration
+import smtplib
+from email.message import EmailMessage
+
+EMAIL_ADDRESS = 'ruwicsbuddies@gmail.com'
+EMAIL_PASSWORD = 'INSERT PASSWORD HERE'
+
 
 col_list = ["Email address", "Full Name"]
 df = pd.read_csv("names_modd.csv", usecols=col_list)
@@ -30,4 +37,15 @@ while df_list:
             df_list.append(x)
             df_list.append(y)
 
-#TODO: 1) extract full names 2) extract email 3) send to email
+#TODO: 1) extract first names and last names 2) extract email 3) send to email
+
+msg = EmailMessage()
+msg['Subject'] = 'This is my test email for multiple people'
+msg['From'] = EMAIL_ADDRESS 
+msg['To'] = ['recipient1, 'recipient2']
+msg.set_content('it works')
+
+
+with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+    smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD) 
+    smtp.send_message(msg)
