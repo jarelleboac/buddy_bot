@@ -6,12 +6,10 @@ import smtplib
 from email.message import EmailMessage
 
 EMAIL_ADDRESS = 'ruwicsbuddies@gmail.com'
-EMAIL_PASSWORD = 'INSERT PASSWORD HERE'
-
-
+EMAIL_PASSWORD = 'INSERT PASSWORD HERE' #app password, exclude from github
 
 col_list = ["Email address", "Full Name"]
-df = pd.read_csv("t1.csv", usecols=col_list)
+df = pd.read_csv("t3_mult.csv", usecols=col_list)
 df_list=df.values.tolist() #converts dataframe to list
 copy_df_list= df_list
 num_pairs=len(df.index)/2
@@ -32,17 +30,23 @@ while df_list:
                     df_list.remove(row)
 
 for pair in pairs_list: 
-    #print("pair:", row)
-    for individual in pair:
-        print("individual:", individual)
         msg = EmailMessage() #instantiate email message class to send email
         msg['Subject'] = 'WiCS Buddy Bot Pair!'
         msg['From'] = EMAIL_ADDRESS 
-        msg['To'] = [individual[0]]  #email will always be individual[0]
-        
+
         #content of email
-        html="""Hi, $(name)"""
-        html = html.replace("$(name)", individual[1])
+        if len(pair) == 3:
+            msg['To'] = [pair[0][0], pair[1][0], pair[2][0]]  #access email
+            html="""Hi, here are your buddies for the week: $(partner1), $(partner2), $(partner3)"""
+            html = html.replace("$(partner1)", pair[0][1])
+            html = html.replace("$(partner2)", pair[1][1])
+            html = html.replace("$(partner3)", pair[2][1])
+        else:   
+            msg['To'] = [pair[0][0], pair[1][0]]  #access email
+            html="""Hi, here are your buddies for the week: $(partner1), $(partner2)"""
+            html = html.replace("$(partner1)", pair[0][1])
+            html = html.replace("$(partner2)", pair[1][1])
+
         msg.set_content(html)
 
 
