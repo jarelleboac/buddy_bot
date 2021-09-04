@@ -8,16 +8,15 @@ Created random pairs from a csv file, accounting for odd number of participants.
 Keep track of previous weeks' pairs.
 
 ## Quickstart
-### Python Requirements
-To do scheduled runs of your email bot, install `hickory`, which is a simple command line tool for scheduling Python scripts:
-```
-pip install hickory
-```
 ### Running the bot
 
 To do a manual run, simply execute the following command:
 ```
 python NAME_OF_PROGRAM.py
+```
+To do scheduled runs of your email bot, install `hickory`, which is a simple command line tool for scheduling Python scripts:
+```
+pip install hickory
 ```
 
 Via command line, navigate to the directory and call hickory schedule with YOUR_PROGRAM_NAME.py as the script argument:
