@@ -4,7 +4,7 @@ Fun side project inspired by a bot within Bloomberg L.P's data engineering team.
 ## version 1.0
 Created random pairs from a csv file, accounting for odd number of participants. Automated emails sent out on a weekly basis and accounts for different partner pairs (dynamic). 
 
-## version 1.1 (in progress)
+## Improvements
 Keep track of previous weeks' pairs.
 
 ## Quickstart
@@ -13,7 +13,14 @@ To do scheduled runs of your email bot, install `hickory`, which is a simple com
 ```
 pip install hickory
 ```
-Then call hickory schedule at the command line with YOUR_PROGRAM_NAME.py as the script argument:
+### Running the bot
+
+To do a manual run, simply execute the following command:
+```
+python NAME_OF_PROGRAM.py
+```
+
+Via command line, navigate to the directory and call hickory schedule with YOUR_PROGRAM_NAME.py as the script argument:
 ```
 hickory schedule src.py --every=10th@9:00am
 ```
