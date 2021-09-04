@@ -37,17 +37,39 @@ for pair in pairs_list:
         #content of email
         if len(pair) == 3:
             msg['To'] = [pair[0][0], pair[1][0], pair[2][0]]  #access email
-            html="""Hi, here are your buddies for the week: $(partner1), $(partner2), $(partner3)"""
+            html="""
+                <div style="text-align:center; font-family: 'Courier'; font-size: 15px;">
+                    <h2>Hi 👋  I'm the WiCS Buddy Bot 🤖 ! You've got mail 💌</h2>
+                    <p>If you're receiving this message, this means you've signed up to meet a new member of WiCS every week : )</p> 
+                    <p>Here are your buddies for the week:</p>
+                    <ul style="list-style-type:none;">
+                        <li>$(partner1)</li>
+                        <li>$(partner2)</li>
+                        <li>$(partner3)</li>
+                    </ul>
+                    <p>Please email us if you wish to opt out. Have a great day ⚡️ </p>
+
+                </div>"""
             html = html.replace("$(partner1)", pair[0][1])
             html = html.replace("$(partner2)", pair[1][1])
             html = html.replace("$(partner3)", pair[2][1])
         else:   
             msg['To'] = [pair[0][0], pair[1][0]]  #access email
-            html="""Hi, here are your buddies for the week: $(partner1), $(partner2)"""
+            html="""<div style="text-align:center; font-family: 'Courier'; font-size: 15px;">
+                    <h2>Hi 👋  I'm the WiCS Buddy Bot 🤖 ! You've got mail 💌</h2>
+                    <p>If you're receiving this message, this means you've signed up to meet a new member of WiCS every week : )</p> 
+                    <p>Here are your buddies for the week:</p> 
+                    <ul style="list-style-type:none;">
+                        <li>$(partner1)</li>
+                        <li>$(partner2)</li>
+                    </ul>
+                    <p>Please email us if you wish to opt out. Have a great day ⚡️ </p>
+
+                </div>"""
             html = html.replace("$(partner1)", pair[0][1])
             html = html.replace("$(partner2)", pair[1][1])
 
-        msg.set_content(html)
+        msg.set_content(html, subtype='html')
 
 
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
