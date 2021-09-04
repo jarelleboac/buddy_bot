@@ -10,7 +10,7 @@ Keep track of previous weeks' pairs.
 ## Quickstart
 ### Running the bot
 
-To do a manual run, simply execute the following command:
+To do a manual run, navigate to the directory and simply execute the following command:
 ```
 python NAME_OF_PROGRAM.py
 ```
