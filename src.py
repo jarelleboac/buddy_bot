@@ -1,12 +1,13 @@
 import pandas as pd
 import random as rd
+import csv
 
 #email configuration
 import smtplib
 from email.message import EmailMessage
 
 EMAIL_ADDRESS = 'ruwicsbuddies@gmail.com'
-EMAIL_PASSWORD = 'INSERT PASSWORD HERE' #app password, exclude from github
+EMAIL_PASSWORD = 'DONT PUT REAL PASSWORD' #app password, exclude from github
 
 col_list = ["Email address", "Full Name"]
 df = pd.read_csv("t3_mult.csv", usecols=col_list)
@@ -15,19 +16,40 @@ copy_df_list= df_list
 num_pairs=len(df.index)/2
 pairs_list= list() #list of pairs
 
-while df_list:
-    if len(df_list) ==3: #odd number of participants
-        pair= rd.sample(df_list, 3)
-        #print("item of 3 is:", pair)
-        pairs_list.append(pair)
-        break        
-    else:
-        pair= rd.sample(df_list, 2)
-        if pair not in pairs_list: #avoid duplicates by checking if pair is created
+#extract from csv file of existing pairs
+
+#make current pairs   
+
+with open('GFG.csv') as file1:
+    existing_lines = csv.reader(file1)
+  
+    while df_list:
+        if len(df_list) ==3: #odd number of participants
+            pair= rd.sample(df_list, 3)
+            #print("item of 3 is:", pair)
             pairs_list.append(pair)
-            for row in pair:
-                    #print("item is:", item)
-                    df_list.remove(row)
+            break        
+        else:
+            pair= rd.sample(df_list, 2)
+            if pair not in pairs_list and pair not in existing_lines: #avoid duplicates by checking if pair is created
+                pairs_list.append(pair)
+                for row in pair:
+                        #print("item is:", item)
+                        df_list.remove(row)
+
+print("pairs list:")
+print(pairs_list)
+
+#--BEGIN TO WRITE PAIRS TO CSV--
+# field names 
+fields = ['Name', 'Email'] 
+    
+# data rows of csv file are in pairs_list
+with open('GFG.csv', 'w', newline='') as csvfile:
+    write = csv.writer(csvfile)
+    write.writerow(fields)
+    writer = csv.writer(csvfile)
+    writer.writerows(pairs_list)
 
 for pair in pairs_list: 
         msg = EmailMessage() #instantiate email message class to send email
