@@ -45,7 +45,7 @@ print(pairs_list)
 fields = ['Name', 'Email'] 
     
 # data rows of csv file are in pairs_list
-with open('GFG.csv', 'w', newline='') as csvfile:
+with open('GFG.csv', 'a', newline='') as csvfile:
     write = csv.writer(csvfile)
     write.writerow(fields)
     writer = csv.writer(csvfile)
@@ -97,3 +97,4 @@ for pair in pairs_list:
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
             smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD) 
             smtp.send_message(msg)
+
