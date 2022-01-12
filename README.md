@@ -71,4 +71,4 @@ hickory schedule src.py --every=10th@9:00am
 ## Helpful Links
 https://dev.to/maxhumber/how-to-send-and-schedule-emails-with-python-dnb <br>
 https://towardsdatascience.com/how-to-send-beautiful-emails-with-python-the-essential-guide-a01d00c80cd0
-
+https://stackoverflow.com/questions/66806072/round-robin-pairing-while-referencing-previous-pairings-in-python
