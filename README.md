@@ -5,10 +5,10 @@ Fun side project inspired by a bot within Bloomberg L.P's data engineering team.
 Created random pairs from a csv file, accounting for odd number of participants. Automated emails sent out on a weekly basis and accounts for different partner pairs (dynamic). 
 
 ## Things You Will Need
-Google Form which will have at the BARE MINIMUM the columns: ["Email address", "Full Name", "Are you open to more than one buddy for the week?"] exported to CSV, python3 installed, git understanding, patience <3
+Google Form which will have at the BARE MINIMUM the columns: ["Email address", "Full Name", "Are you open to more than one buddy for the week?"] exported to CSV, python3 installed, git understanding, patience <3. One person should be designated to run the bot (whoever is in charge of the mentorship program). 
 
 ## Improvements
-Keep track of previous weeks' pairs (testing...in a trio, will it be able to see that two people in that group have already met? Yes!), create new pair if email bounces back.
+Keep track of previous weeks' pairs (testing...in a trio, will it be able to see that two people in that group have already met? Yes!), create new pair if email bounces back, randomly generated list of starter prompts ("What's your favorite food?")
 
 ## Quickstart
 ### Running the bot
