@@ -23,8 +23,6 @@ def rotate(top_array, bottom_array):
     return top_array, bottom_array
 
 def main():
-
-    test= [1 ,2, 3, 4, 8, 7, 6, 5]
     col_list = ["Email address", "Full Name"] #extracting only the important values (for now): email, full name
     df = pd.read_csv("form_responses.csv", usecols=col_list) #reading in the form responses exported to csv into a dataframe
     participants =df.values.tolist() #converts dataframe of form responses to list
@@ -46,4 +44,5 @@ def main():
         top_array, bottom_array = split_list(participants) 
         top_array.append(0) #top array will need a temporary holder of 0, the 0 will indicate that this person does not receive a pair for the week
         top_array, bottom_array = rotate(top_array, bottom_array)
+
 
