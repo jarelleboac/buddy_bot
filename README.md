@@ -2,13 +2,13 @@
 Fun side project inspired by a bot within Bloomberg L.P. This is a bot which creates random pairs for members of Rutgers WiCS to meet. The goal of this bot is to increase the sense of community within WiCS especially in this remote environment by promoting small group meetups with new people. 
 
 ## version 1.0
-Created random pairs from a csv file, accounting for odd number of participants. Automated emails sent out on a weekly basis and accounts for different partner pairs (dynamic). 
+Created round robin pairs from a csv file, accounting for cases with odd/even number of participants. Automated emails sent out on a weekly basis.
 
 ## Things You Will Need
 Google Form which will have at the BARE MINIMUM the columns: ["Email address", "Full Name", "Are you open to more than one buddy for the week?"] exported to CSV, python3 installed, git understanding, patience <3. One person should be designated to run the bot (whoever is in charge of the mentorship program). 
 
 ## Improvements
-Keep track of previous weeks' pairs (testing...in a trio, will it be able to see that two people in that group have already met? Yes!), create new pair if email bounces back, randomly generated list of starter prompts ("What's your favorite food?")
+Randomly generated list of starter prompts ("What's your favorite food?"), account for person who decides to opt out, account for email bounce back
 
 ## Quickstart
 ### Running the bot
