@@ -18,9 +18,12 @@ def rotate(top_array, bottom_array):
     bottom_array.remove(top_array[1])
     return top_array, bottom_array
 
-def export_csv(top_array, bottom_array):
-    temp = top_array + bottom_array
-
+def export_txt(filename, arr):
+    output_file = open(filename, 'w')
+    for element in arr:
+        output_file.write(str(element) + '\n')
+    output_file.close()
+    return   
 
 def main():
     col_list = ["Email address", "Full Name"] #extracting only the important values (for now): email, full name
@@ -48,10 +51,6 @@ def main():
     pairs_of_the_week = list(zip(top_array, bottom_array))
 
     #export top and bottom arrays to txt file
-    output_file = open('top_array.txt', 'w')
-
-    for element in top_array:
-        output_file.write(str(element) + '\n')
-
-    output_file.close()
+    export_txt('top_array.txt', top_array)
+    export_txt('bottom_array.txt', bottom_array)
 
