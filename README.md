@@ -5,7 +5,7 @@ Fun side project inspired by a bot within Bloomberg L.P. This is a bot which cre
 Created round robin pairs from a csv file, accounting for cases with odd/even number of participants. Automated emails sent out on a weekly basis.
 
 ## Things You Will Need
-Google Form which will have at the BARE MINIMUM the columns: ["Email address", "Full Name", "Are you open to more than one buddy for the week?"] exported to CSV, python3 installed, git understanding, patience <3. One person should be designated to run the bot (whoever is in charge of the mentorship program). 
+Google Form which will have at the BARE MINIMUM the columns: ["Email address", "Full Name"] exported to CSV, python3 installed, git understanding, patience <3. One person should be designated to run the bot (whoever is in charge of the mentorship program). 
 
 ## Improvements
 Randomly generated list of starter prompts ("What's your favorite food?"), account for person who decides to opt out, account for email bounce back
@@ -13,9 +13,9 @@ Randomly generated list of starter prompts ("What's your favorite food?"), accou
 ## Quickstart
 ### Running the bot
 
-To do a manual run (recommended), navigate to the directory and simply execute the following command:
+To do a manual run (recommended), navigate to the directory which has all the files and simply execute the following command:
 ```
-python NAME_OF_PROGRAM.py
+python main.py
 ```
 To do scheduled runs of your email bot, install `hickory`, which is a simple command line tool for scheduling Python scripts:
 ```
