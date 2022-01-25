@@ -14,33 +14,33 @@ def rotate(top_array, bottom_array):
     # remove the first element from bottom array and append to index 1 of top array
     top_array.insert(1, bottom_array[0])    
     bottom_array.remove(top_array[1])
-    return top_array, bottom_array
+    return top_array, bottom_array   
 
-def export_txt(filename, arr):
-    output_file = open(filename, 'w')
-    for element in arr:
-        output_file.write(str(element) + '\n')
-    output_file.close()
-    return   
+def write_csv(filename, arr):
+    with open(filename, 'w', newline='') as csvfile: #should be gfg fix later
+        writer = csv.writer(csvfile)
+        writer.writerows(arr)
+    return
 
-def read_txt(filename):
-    arr = []
-    with open(filename) as file:
-        for line in file:
-            arr.append(line.rstrip())
-
+def read_csv(filename):
+    if filename == 'top_array.csv' or filename == 'bottom_array.csv':
+        df = pd.read_csv(filename, header=None)
+    else:
+        df = pd.read_csv(filename, usecols=["Email address", "Full Name"])
+    arr =df.values.tolist()
     return arr
 
 def main():
 
-    if os.path.isfile('top_array.txt') and os.path.isfile('bottom_array.txt'): #if separate lists exist for 
-        top_array= read_txt('top_array.txt')
-        bottom_array= read_txt('bottom_array.txt')
+    if os.path.isfile('top_array.csv') and os.path.isfile('bottom_array.csv'): #if separate lists exist for 
+        try:
+            top_array= read_csv('top_array.csv')
+        except:
+            print("yikes")
+        bottom_array= read_csv('bottom_array.csv')
 
     else:
-        col_list = ["Email address", "Full Name"] #extracting only the important values (for now): email, full name
-        df = pd.read_csv("form_responses.csv", usecols=col_list) #reading in the form responses exported to csv into a dataframe
-        participants =df.values.tolist() #converts dataframe of form responses to list
+        participants= read_csv("form_responses.csv")
 
         if len(participants) == 0:
             print("no one has signed up. Pairs are not possible at this time")
@@ -49,19 +49,16 @@ def main():
             print("only one person has signed up. Pairs are not possible at this time")
             return
         top_array, bottom_array = split_list(participants) 
-        print("type:", type(top_array))
         if len(participants) % 2 != 0: #odd number of participants
-            top_array.append(0) #top array will need a temporary holder of 0, the 0 will indicate that this person does not receive a pair for the week
+            top_array.append(['0', '0']) #top array will need a temporary holder of 0, the 0 will indicate that this person does not receive a pair for the week
 
     #initiate round robin lineup
     top_array, bottom_array = rotate(top_array, bottom_array) 
-
     #create the pairs for the week
     pairs_of_the_week = list(zip(top_array, bottom_array))
 
     #export top and bottom arrays to txt file
-    export_txt('top_array.txt', top_array)
-    export_txt('bottom_array.txt', bottom_array)
+    write_csv('top_array.csv', top_array)
+    write_csv('bottom_array.csv', bottom_array)
 
     return pairs_of_the_week
-
