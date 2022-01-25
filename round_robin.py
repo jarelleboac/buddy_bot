@@ -26,7 +26,6 @@ def main():
     col_list = ["Email address", "Full Name"] #extracting only the important values (for now): email, full name
     df = pd.read_csv("form_responses.csv", usecols=col_list) #reading in the form responses exported to csv into a dataframe
     participants =df.values.tolist() #converts dataframe of form responses to list
-    current_week_pairs = list() #list to store this week's pairs in
 
     if len(participants) == 0:
         print("no one has signed up. Pairs are not possible at this time")
@@ -45,4 +44,8 @@ def main():
         top_array.append(0) #top array will need a temporary holder of 0, the 0 will indicate that this person does not receive a pair for the week
         top_array, bottom_array = rotate(top_array, bottom_array)
 
+    #create the pairs for the week
+    pairs_of_the_week = list(zip(top_array, bottom_array))
+
+    #export list to txt
 
