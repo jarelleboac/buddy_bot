@@ -76,3 +76,4 @@ https://dev.to/maxhumber/how-to-send-and-schedule-emails-with-python-dnb <br>
 https://towardsdatascience.com/how-to-send-beautiful-emails-with-python-the-essential-guide-a01d00c80cd0
 https://stackoverflow.com/questions/66806072/round-robin-pairing-while-referencing-previous-pairings-in-python
 https://stackoverflow.com/questions/6648512/scheduling-algorithm-for-a-round-robin-tournament
+https://www.teclado.com/30-days-of-python/python-30-day-21-multiple-files
