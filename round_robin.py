@@ -1,12 +1,8 @@
 import pandas as pd
-import random as rd
 import csv
 from itertools import combinations
-import smtplib
-from email.message import EmailMessage
 import os.path 
-from os import path 
-import math
+from os import path     
 
 def split_list(a_list):
     half = len(a_list)//2
@@ -21,6 +17,10 @@ def rotate(top_array, bottom_array):
     top_array.insert(1, bottom_array[0])    
     bottom_array.remove(top_array[1])
     return top_array, bottom_array
+
+def export_csv(top_array, bottom_array):
+    temp = top_array + bottom_array
+
 
 def main():
     col_list = ["Email address", "Full Name"] #extracting only the important values (for now): email, full name
@@ -47,5 +47,11 @@ def main():
     #create the pairs for the week
     pairs_of_the_week = list(zip(top_array, bottom_array))
 
-    #export list to txt
+    #export top and bottom arrays to txt file
+    output_file = open('top_array.txt', 'w')
+
+    for element in top_array:
+        output_file.write(str(element) + '\n')
+
+    output_file.close()
 
